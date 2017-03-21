@@ -22,7 +22,7 @@ class EloquentSubscriber
 
             if ($this->modelHelper->indexOnly($model, $index->indexName)) {
                 $index->addObject($this->modelHelper->getAlgoliaRecord($model, $index->indexName), $this->modelHelper->getKey($model));
-            } else if ($this->modelHelper->wouldBeIndexed($model, $index->indexName)) {
+            } else {
                 $index->deleteObject($this->modelHelper->getObjectId($model));
             }
         }
